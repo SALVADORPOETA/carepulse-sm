@@ -1,8 +1,6 @@
 'use client'
 
 import { ColumnDef } from '@tanstack/react-table'
-import { MoreHorizontal } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import StatusBadge from '../StatusBadge'
 import { formatDateTime } from '@/lib/utils'
 import { Doctors } from '@/constants'
@@ -50,13 +48,13 @@ export const columns: ColumnDef<Appointment>[] = [
       return (
         <div className="flex items-center gap-3">
           <Image
-            src={doctor?.image}
-            alt={doctor.name}
+            src={doctor?.image ?? 'Unknown Doctor'}
+            alt={doctor?.name ?? 'Unknown Doctor'}
             width={100}
             height={100}
             className="size-8"
           />
-          <p className="whitespace-nowrap">Dr. {doctor?.name}</p>
+          <p className="whitespace-nowrap">Dr. {doctor?.name ?? 'Unknown'}</p>
         </div>
       )
     },
